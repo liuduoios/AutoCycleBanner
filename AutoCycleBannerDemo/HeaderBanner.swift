@@ -30,7 +30,9 @@ class HeaderBanner: UIView {
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.pageIndicatorTintColor = .black
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .lightGray
+          
         return pageControl
     }()
     
