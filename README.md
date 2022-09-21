@@ -25,6 +25,7 @@ banner.imageUrls = [
 banner.didTapIndex = {
     print($0)
 }
+banner.scrollInterval = 3
 addSubview(banner)
 
 // 布局代码
@@ -67,6 +68,12 @@ banner.pageControl = pageControl
 
 ```swift
 banner.placeholderImage = UIImage(named: "xxxxx)
+```
+
+### 设置滚动间隔时间
+
+```swift
+banner.scrollInterval = 5
 ```
 
 ### 控制滚动的开始和停止
