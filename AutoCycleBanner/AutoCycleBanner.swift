@@ -10,7 +10,7 @@ import SDWebImage
 
 private let cellIdentifier = "BannerCell"
 
-public class AutoCycleBanner: UIView {
+open class AutoCycleBanner: UIView {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,14 +37,29 @@ public class AutoCycleBanner: UIView {
         }
     }
     
+    /// 图片未加载到时的占位图
     public var placeholderImage: UIImage?
+    
+    /// 图片的 url 数据
     public var imageUrls = [String]() {
         didSet {
             pageControl.numberOfPages = imageUrls.count
             collectionView.reloadData()
         }
     }
+    
+    /// 点击某个图片时回调，参数为图片索引下标
     public var didTapIndex: ((Int) -> Void)?
+    
+    /// 每次滚动的间隔时间
+    public var scrollInterval: TimeInterval = 2 {
+        didSet {
+            if scrollInterval != oldValue {
+                endScrolling()
+                startScrolling()
+            }
+        }
+    }
     
     private var timer: Timer?
     private var pageIndex = 0
@@ -54,7 +69,7 @@ public class AutoCycleBanner: UIView {
         commonInit()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
@@ -69,12 +84,13 @@ public class AutoCycleBanner: UIView {
         print(#function)
     }
     
+    /// 开始滚动
     public func startScrolling() {
         if let timer = timer, timer.isValid {
             return
         }
         
-        timer = Timer(timeInterval: 2, repeats: true, block: { [weak self] timer in
+        timer = Timer(timeInterval: scrollInterval, repeats: true, block: { [weak self] timer in
             guard let `self` = self else {
                 timer.invalidate()
                 return
@@ -84,6 +100,7 @@ public class AutoCycleBanner: UIView {
         RunLoop.main.add(timer!, forMode: .default)
     }
     
+    /// 结束滚动
     public func endScrolling() {
         timer?.invalidate()
         timer = nil
@@ -100,17 +117,17 @@ public class AutoCycleBanner: UIView {
                                    height: pageControl.frame.height)
     }
     
-    public func reset() {
+    private func reset() {
         pageIndex = 1
         scrollToIndex(pageIndex, animated: false)
     }
     
-    public func resetToLastImage() {
+    private func resetToLastImage() {
         pageIndex = imageUrls.count
         scrollToIndex(pageIndex, animated: false)
     }
     
-    public func scrollToNextPage() {
+    private func scrollToNextPage() {
         pageIndex = pageIndex + 1
         if pageIndex == imageUrls.count {
             scrollToExtraPage()
@@ -119,11 +136,11 @@ public class AutoCycleBanner: UIView {
         }
     }
     
-    public func scrollToExtraPage() {
+    private func scrollToExtraPage() {
         scrollToIndex(imageUrls.count, animated: true)
     }
     
-    public func scrollToIndex(_ index: Int, animated: Bool) {
+    private func scrollToIndex(_ index: Int, animated: Bool) {
         let offset = Double(index) * collectionView.bounds.width
         collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: animated)
         pageControl.currentPage = imageIndexWithItemIndex(index)

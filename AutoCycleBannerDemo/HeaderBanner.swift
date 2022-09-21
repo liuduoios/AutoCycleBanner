@@ -46,6 +46,7 @@ class HeaderBanner: UIView {
         banner.didTapIndex = {
             print($0)
         }
+        banner.scrollInterval = 5
         addSubview(banner)
         
         NSLayoutConstraint.activate([

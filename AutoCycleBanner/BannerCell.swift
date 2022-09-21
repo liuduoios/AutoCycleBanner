@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BannerCell: UICollectionViewCell {
+open class BannerCell: UICollectionViewCell {
     
     public let label: UILabel = {
         let label = UILabel()
@@ -28,7 +28,7 @@ class BannerCell: UICollectionViewCell {
         commonInit()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
