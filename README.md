@@ -2,8 +2,7 @@
 
 一个可以自动无限滚动的 Banner 视图。
 
-<video src="./AutoCycleBannerDemo.mov" width="480" autoplay loop>
-</video>
+<img src="./AutoCycleBannerDemo.gif" width="480"/>
 
 ## 引入
 
