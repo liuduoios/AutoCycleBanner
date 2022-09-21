@@ -16,6 +16,7 @@
 		8610CE9628D9BBFC0024D928 /* AutoCycleBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610CE9528D9BBFC0024D928 /* AutoCycleBanner.swift */; };
 		8610CE9828D9BD5E0024D928 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610CE9728D9BD5E0024D928 /* BannerCell.swift */; };
 		8610CE9E28D9CABE0024D928 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610CE9D28D9CABE0024D928 /* SecondViewController.swift */; };
+		8610CEA028DAB3C10024D928 /* HeaderBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610CE9F28DAB3C10024D928 /* HeaderBanner.swift */; };
 		B05BD9D51FDA8DE5D5D2B807 /* Pods_AutoCycleBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74436D57BC423EF9E22A495C /* Pods_AutoCycleBanner.framework */; };
 		F6DC38BAD4168329ECCF66FC /* Pods_AutoCycleBannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05237B98E148D9603A38F17 /* Pods_AutoCycleBannerDemo.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		8610CE9528D9BBFC0024D928 /* AutoCycleBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCycleBanner.swift; sourceTree = "<group>"; };
 		8610CE9728D9BD5E0024D928 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		8610CE9D28D9CABE0024D928 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8610CE9F28DAB3C10024D928 /* HeaderBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBanner.swift; sourceTree = "<group>"; };
 		950C4520361196530C24407C /* Pods-AutoCycleBanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoCycleBanner.release.xcconfig"; path = "Target Support Files/Pods-AutoCycleBanner/Pods-AutoCycleBanner.release.xcconfig"; sourceTree = "<group>"; };
 		D05237B98E148D9603A38F17 /* Pods_AutoCycleBannerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoCycleBannerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7812443BFE02E5030296396 /* Pods-AutoCycleBannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoCycleBannerDemo.release.xcconfig"; path = "Target Support Files/Pods-AutoCycleBannerDemo/Pods-AutoCycleBannerDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				8610CE8328D9BBA20024D928 /* AppDelegate.swift */,
 				8610CE8728D9BBA20024D928 /* ViewController.swift */,
 				8610CE9D28D9CABE0024D928 /* SecondViewController.swift */,
+				8610CE9F28DAB3C10024D928 /* HeaderBanner.swift */,
 				8610CE8928D9BBA20024D928 /* Main.storyboard */,
 				8610CE8C28D9BBA30024D928 /* Assets.xcassets */,
 				8610CE8E28D9BBA30024D928 /* LaunchScreen.storyboard */,
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8610CEA028DAB3C10024D928 /* HeaderBanner.swift in Sources */,
 				8610CE9E28D9CABE0024D928 /* SecondViewController.swift in Sources */,
 				8610CE8828D9BBA20024D928 /* ViewController.swift in Sources */,
 				8610CE8428D9BBA20024D928 /* AppDelegate.swift in Sources */,
