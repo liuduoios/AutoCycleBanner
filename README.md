@@ -59,6 +59,7 @@ let pageControl: UIPageControl = {
     return pageControl
 }()
 
+addSubview(pageControl) // 需要调用 addSubview 来添加自己的 pageControl，因为如果 pageControl 位于 banner 的外部，banner 如果设置了 maskToBounds 后 pageControl 会不可见
 banner.pageControl = pageControl
 ```
 
