@@ -32,12 +32,10 @@ class HeaderBanner: UIView {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .lightGray
-          
         return pageControl
     }()
     
     private func commonInit() {
-        banner.pageControl = pageControl
         banner.imageUrls = [
             "https://t7.baidu.com/it/u=963301259,1982396977&fm=193&f=GIF",
             "https://t7.baidu.com/it/u=1575628574,1150213623&fm=193&f=GIF",
@@ -56,9 +54,13 @@ class HeaderBanner: UIView {
             banner.heightAnchor.constraint(equalToConstant: 200)
         ])
         
+        addSubview(pageControl)
+        banner.pageControl = pageControl
+        
         NSLayoutConstraint.activate([
             pageControl.topAnchor.constraint(equalTo: banner.bottomAnchor),
-            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 }

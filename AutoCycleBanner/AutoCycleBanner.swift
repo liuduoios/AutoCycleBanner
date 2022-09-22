@@ -26,16 +26,18 @@ open class AutoCycleBanner: UIView {
         return collectionView
     }()
     
-    public var pageControl: UIPageControl = {
+    public lazy var pageControl: UIPageControl = innerPageControl! {
+        didSet {
+            pageControl.numberOfPages = imageUrls.count
+            oldValue.removeFromSuperview()
+            innerPageControl = nil
+        }
+    }
+    private var innerPageControl: UIPageControl? = {
         let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
         pageControl.hidesForSinglePage = true
         return pageControl
-    }() {
-        didSet {
-            oldValue.removeFromSuperview()
-            addSubview(pageControl)
-        }
-    }
+    }()
     
     /// 图片未加载到时的占位图
     public var placeholderImage: UIImage?
@@ -111,10 +113,12 @@ open class AutoCycleBanner: UIView {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = bounds.size
         
-        pageControl.frame = CGRect(x: (bounds.width - pageControl.frame.width) * 0.5,
-                                   y: bounds.height - pageControl.frame.height,
-                                   width: pageControl.frame.width,
-                                   height: pageControl.frame.height)
+        if let pageControl = innerPageControl {
+            pageControl.frame = CGRect(x: (bounds.width - pageControl.frame.width) * 0.5,
+                                       y: bounds.height - pageControl.frame.height,
+                                       width: pageControl.frame.width,
+                                       height: pageControl.frame.height)
+        }
     }
     
     private func reset() {
