@@ -98,6 +98,9 @@ open class AutoCycleBanner: UIView {
                 timer.invalidate()
                 return
             }
+            if self.collectionView.isTracking || self.collectionView.isDragging {
+                return
+            }
             self.scrollToNextPage()
         })
         RunLoop.main.add(timer!, forMode: .default)
