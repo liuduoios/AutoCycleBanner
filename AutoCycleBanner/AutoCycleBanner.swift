@@ -20,6 +20,7 @@ open class AutoCycleBanner: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: cellIdentifier)
