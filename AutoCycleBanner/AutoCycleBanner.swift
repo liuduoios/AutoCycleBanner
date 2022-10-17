@@ -180,7 +180,6 @@ extension AutoCycleBanner: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BannerCell
         
         let index = imageIndexWithItemIndex(indexPath.item)
-        cell.label.text = "\(index)"
         if let imageURL = URL(string: imageUrls[index]) {
             cell.imageView.sd_setImage(with: imageURL, placeholderImage: placeholderImage)
         }
